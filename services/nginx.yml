@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-f
+spec:
+  selector:
+    app: nginx-f
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: nginx80
+      nodePort: 30001
+  type: NodePort
+#  type: LoadBalancer

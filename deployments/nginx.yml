@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-f
+spec:
+  selector: 
+    matchLabels:
+      app: nginx-f
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-f
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: nginx-f
+          image: 426565272619.dkr.ecr.us-east-2.amazonaws.com/freydin:nginx-f.1
+          ports:
+            - name: nginx80
+              containerPort: 80
+          volumeMounts:
+            - name: webpub-vol
+              mountPath: /webpub/www
+      volumes:
+        - name: webpub-vol
+          persistentVolumeClaim:
+            claimName: webpub-claim

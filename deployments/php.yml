@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: php-f
+spec:
+  selector: 
+    matchLabels:
+      app: php-f
+      tier: frontend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: php-f
+        tier: frontend
+        track: stable
+    spec:
+      volumes:
+        - name: webpub-vol
+          persistentVolumeClaim:
+            claimName: webpub-claim
+      containers:
+        - name: php-f
+          image: 426565272619.dkr.ecr.us-east-2.amazonaws.com/freydin:php-f.1
+          ports:
+            - name: php9000
+              containerPort: 9000
+          volumeMounts:
+            - name: webpub-vol
+              mountPath: /webpub/www

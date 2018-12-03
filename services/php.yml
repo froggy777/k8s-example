@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-f
+spec:
+  selector:
+    app: php-f
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: php9000
+      nodePort: 30003
+  type: NodePort
+#  type: LoadBalancer

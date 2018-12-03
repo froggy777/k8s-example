@@ -1,0 +1,21 @@
+version: "2"
+services:
+  nginx:
+    build:
+       context: ./nginx
+    image: 426565272619.dkr.ecr.us-east-2.amazonaws.com/freydin:nginx-f.1
+    ports:
+      - "81:80"
+
+  node:
+    build:
+      context: ./node
+    image: 426565272619.dkr.ecr.us-east-2.amazonaws.com/freydin:node-f.1
+    ports:
+      - "8080:8080"
+
+  php:
+    build:
+      context: ./php
+    image: 426565272619.dkr.ecr.us-east-2.amazonaws.com/freydin:php-f.1
+
