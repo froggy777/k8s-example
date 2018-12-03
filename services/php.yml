@@ -10,6 +10,6 @@ spec:
     - protocol: TCP
       port: 9000
       targetPort: php9000
-      nodePort: 30003
-  type: NodePort
+#      nodePort: 30003
+#  type: NodePort
 #  type: LoadBalancer
