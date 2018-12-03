@@ -1,3 +1,3 @@
 # k8s-example
 
-Use ./kube.sh help for help
+Use `./kube.sh help` for help
