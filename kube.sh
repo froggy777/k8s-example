@@ -1,7 +1,7 @@
 #!/bin/bash
 help(){
 echo "Use kube.sh with next commands:"
-echo "start|stop|restart|reload"
+echo "start|stop|restart|reload|volumereload"
 }
 
 
@@ -35,6 +35,9 @@ restart(){
 stop
 start
 }
+volumereload(){
+kubectl apply -f pv/webpub.yml
+}
 if [[ -z $1 ]]
 then
 help
@@ -61,6 +64,11 @@ start)
         reload)
         echo Reloading...
         reload
+        echo Reloaded
+        ;;
+        volumereload)
+        echo Reloading...
+        volumereload
         echo Reloaded
         ;;
         help)
