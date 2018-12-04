@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-php-f
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+ backend:
+   serviceName: nginx-f
+   servicePort: 80
+#      valueFrom:
+#        configMapKeyRef:
+#          name: env
+#          key: label
+ rules:
+ - host: php.loc
+   http:
+     paths:
+     - backend:
+         serviceName: nginx-f
+         servicePort: 30001
