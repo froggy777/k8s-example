@@ -23,9 +23,12 @@ spec:
             - name: nginx80
               containerPort: 80
           volumeMounts:
-            - name: webpub-vol
-              mountPath: /webpub/www
+           - mountPath: "/webpub/www"
+             name: glusterfsvol
       volumes:
-        - name: webpub-vol
-          persistentVolumeClaim:
-            claimName: webpub-claim
+       - name: glusterfsvol
+         glusterfs:
+           endpoints: glusterfs-cluster
+           path: gv0
+           readOnly: false
+
