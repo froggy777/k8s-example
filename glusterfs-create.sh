@@ -1,9 +1,9 @@
 #!/bin/bash
 #VAR
-GLUSTER_DIR="/mnt/gluster"
-GLUSTER_NODE_1="ub"
-GLUSTER_NODE_2="ub2"
-GLUSTER_VOLUME="vg0"
+GLUSTER_DIR="/webpub/www/glusterfs"
+GLUSTER_NODE_1="kube-test-1"
+GLUSTER_NODE_2="kube-test-2"
+GLUSTER_VOLUME="gv0"
 
 
 #Create dir
