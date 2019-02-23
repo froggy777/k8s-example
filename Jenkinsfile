@@ -9,7 +9,7 @@ pipeline {
     stage('Build/push') {
       steps {
         sh '''echo "Here must be docker build/push commands"
-echo "but we have only ls
+echo "but we have only ls"
 pwd
 ls -la'''
       }
