@@ -19,10 +19,20 @@ ls -la'''
 
           }
         }
-        stage('') {
+        stage('Stage-2') {
           steps {
             dir(path: '/opt/api') {
               sh '''echo "another dir"
+pwd
+ls -la'''
+            }
+
+          }
+        }
+        stage('Stage-3') {
+          steps {
+            dir(path: '/opt/front') {
+              sh '''echo "this is front dir"
 pwd
 ls -la'''
             }
