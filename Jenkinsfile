@@ -7,11 +7,28 @@ pipeline {
       }
     }
     stage('Build/push') {
-      steps {
-        sh '''echo "Here must be docker build/push commands"
+      parallel {
+        stage('Build/push') {
+          steps {
+            dir(path: '/opt') {
+              sh '''echo "Here must be docker build/push commands"
 echo "but we have only ls"
 pwd
 ls -la'''
+            }
+
+          }
+        }
+        stage('') {
+          steps {
+            dir(path: '/opt/api') {
+              sh '''echo "another dir"
+pwd
+ls -la'''
+            }
+
+          }
+        }
       }
     }
     stage('deploy') {
